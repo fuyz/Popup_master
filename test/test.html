@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="assets/css/popup.css">
+</head>
+<body>
+<button onclick="goto()">goTo</button>
+<br><br>
+<a id="#inline" class="default_popup" href="alert.html">Default Inline</a>
+
+<div class="default_popup" >弹出ajax页面</div>
+
+<div class="default_popup" href="alert.html">弹出ajax页面</div>
+
+<div class="main">
+
+</div>
+<!--不可以-->
+<script src="jquery-3.1.0.js"></script>
+<!--不可以-->
+<script src="jquery-3.1.1.js"></script>
+
+<!--可以-->
+<script src="jquery.1.7.2.js"></script>
+<!--可以-->
+<script src="jquery.1.12.4.js"></script>
+<!--可以-->
+<script src="jquery.2.2.4.js"></script>
+ <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>-->
+<script src="assets/js/jquery.popup.js"></script>
+<script>
+
+    var data = 0;
+    //弹出层 配置：
+    // Default usage
+     $('.default_popup').popup({
+        afterOpen : function(){
+//            this.close();
+        }
+    });
+
+//        $('.default_popup').popup();
+
+    var str = '';
+    for(var i =0; i<10;i++){
+        str+='<div class="default_popup" href="alert.html" onclick="data = 111">js创建的DOM(跳转到alert页面)</div>' ;
+    }
+    document.querySelector('.main').innerHTML = str;
+
+    function fn1(){
+        alert(1)
+    }
+
+    var popup = new $.Popup();
+    function goto(){
+        popup.open('alert.html');
+
+    }
+
+</script>
+<script>
+    fn1();
+//    alert(data)
+</script>
+</body>
+</html>
